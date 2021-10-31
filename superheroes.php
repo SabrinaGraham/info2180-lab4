@@ -68,8 +68,39 @@ $superheroes = [
 
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+<?php 
+header('Access-Control-Allow-Origin:*');
+function getHero($input,$array){
+    $res=[];
+    $found=1;
+    
+    foreach($array as $item)
+    {
+        if($input==$item['name']||$input==$item['alias'])
+        {
+            foreach($item as $key=>$value)
+            {
+                array_push($res,$value);
+            }
+            echo json_encode($res);
+            $found=0;
+        }
+        else if ($input=='')
+        {
+            echo "<ul><li>";
+            echo $item['alias'] ;
+            echo "</li></ul>";
+            $found=0;
+        }
+      
+    }
+    if($found==1)
+    {
+        echo htmlspecialchars(' OOPS! SUPERHERO NOT FOUND T-T');
+        $found=0;
+    }
+}
+$q=htmlspecialchars($_GET["query"]);
+getHero($q,$superheroes);
+
+?>

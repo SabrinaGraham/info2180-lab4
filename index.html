@@ -7,17 +7,24 @@
         <script src='app.js'></script>
     </head>
     <body>
-        <div>
+        <div id='header'>
             <header>Avengers Character Search</header>
         </div>
-        <div class='input'>
-            <h1></h1>
-            <input type="character" name="character" id="character" placeholder="e.g. Captain America or Steve Rogers">
+        <div class=content id='input'>
+            <h1>Search by Full Name or Alias</h1>
+            <form action="#" method="post"></form>
+                <input type="character" name="character" id="character" placeholder="e.g. Captain America or Steve Rogers">
+            </form>
             <button type='button' id='searchbtn' class='btn'>Search</button>
         </div>
-        <div class='output'>
-            <h2></h2>
-            <div id='result'></div>
+        <div class=content id='output'>
+            <div id='rt'><h2></h2></div>
+            <br>
+            <div id='result'>
+                <h4></h4>
+                <h3></h3>
+                <p></p>
+            </div>
         </div>
         
     </body>
